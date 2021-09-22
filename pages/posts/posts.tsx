@@ -10,9 +10,8 @@ const [page, setPage] = useState(0)
 // const getPosts = async (page = 0) =>{
 //     const {data} = await axiosInstance.get('/posts?_limit=10&_page=' + page);
 //     return data
-//     }
- 
-const getPosts = (page = 0) => axiosInstance.get('/posts?_limit=10&_page=' + page).then((res) => res.data )
+//     }  
+const getPosts = (page = 0) => axiosInstance.get('/photos?_limit=10&_page=' + page).then((res) => res.data )
  
 const {
   isLoading,
@@ -36,8 +35,14 @@ const columns = [
     width: '20%',
   },
   {
-    title: 'Body',
-    dataIndex: 'body',
+    title: 'url',
+    dataIndex: 'url',
+    render:(i)=> <img src={i} alt={i}  height={250} width={250} />
+  },
+  {
+    title: 'thumbnailUrl',
+    dataIndex: 'thumbnailUrl',
+    render:(i)=> <img src={i} alt={i}  height={250} width={250}  />
   },
 ];
 
